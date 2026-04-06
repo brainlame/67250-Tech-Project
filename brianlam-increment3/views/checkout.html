@@ -3,38 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exhibitions - Monomuse</title>
+    <title>Checkout - Monomuse</title>
     <link rel="stylesheet" href="../static/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <script src="../static/script.js" defer></script>
 </head>
-<body>
+<body onload="addYear()">
     <header>
         <nav>
             <a href="../index.html">Home</a>
             <a href="explore.html">Explore</a>
-            <a href="exhibitions.html" id="navselected">Exhibitions</a>
+            <a href="exhibitions.html">Exhibitions</a>
             <a href="tickets.html">Buy Tickets</a>
-            <a href="checkout.html">Checkout</a>
+            <a href="checkout.html" id="navselected">Checkout</a>
         </nav>
     </header>
-    <h1>Exhibitions</h1>
 
-    <h3>Echoes of the Past: Ancient Civilizations</h3>
-    <p>
-        Old paintings from Egypt, Greece, and Rome. Pottery, sculptures, everyday items, with some pieces over 2,000 years old.
-    </p>
+    <h1>Checkout</h1>
 
-    <h3>Colors of Change: Modern Abstract Art</h3>
-    <p>
-        Abstract, contemporary paintings with multitudes of colors and shapes.
-    </p>
+    <p>Purchase your tickets!</p>
 
-    <h3>Nature's Canvas: Photography of the Natural World</h3>
-    <p>
-        High-quality photos of nature. Landscapes, animals, and environmental scenes.
-    </p>
+    <form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="quantity">Quantity:</label><br>
+        <input type="number" id="quantity" name="quantity" min="1" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
 </body>
+<footer>
+    <p id="copyYear"></p>
+</footer>
 </html>
