@@ -1,0 +1,715 @@
+/* CSS Variables for Color Scheme */
+:root {
+  --primary-blue: #4464AD;
+  --light-blue: #A4B0F5;
+  --dark-green: #28502E;
+  --medium-green: #47682C;
+  --bg-dark: #1a1d2e;
+  --bg-light: #f8f9ff;
+  --text-light: #f5f5f7;
+  --text-dark: #2a2d3e;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Lora', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  line-height: 1.6;
+  font-style: normal;
+}
+
+body {
+  background: #f5f7fa;
+  color: var(--text-dark);
+  padding: 0;
+  margin: 0;
+}
+
+/* Exclude Leaflet map elements from universal styles */
+.leaflet-container *,
+.leaflet-pane,
+.leaflet-pane *,
+.leaflet-tile-pane,
+.leaflet-tile-pane *,
+.leaflet-tile,
+.leaflet-layer,
+.leaflet-control,
+img.leaflet-tile {
+  background: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.leaflet-container {
+  background: #f0f0f0 !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+  color: #333 !important;
+}
+
+/* Container and Layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.header {
+  grid-area: header;
+  background: transparent;
+  padding: 0;
+  display: none;
+}
+
+.nav_bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 16px 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(68, 100, 173, 0.15);
+}
+
+.main {
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+/* Homepage centered text */
+body.home .main {
+  text-align: center;
+}
+
+/* Content pages left-aligned text */
+body.content-page .main {
+  text-align: left;
+}
+
+body.content-page .main h1,
+body.content-page .main h2,
+body.content-page .main h3 {
+  text-align: left;
+}
+
+/* Form pages keep centered forms */
+body.form-page .main {
+  text-align: center;
+}
+
+body.form-page .main h1,
+body.form-page .main h2 {
+  text-align: center;
+}
+
+.main_img {
+  display: none;
+}
+
+.footer {
+  background: transparent;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 32px 24px;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Typography */
+h1 {
+  color: var(--text-dark);
+  font-size: 3em;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  color: var(--text-dark);
+  font-size: 1.8em;
+  font-weight: 600;
+  margin: 32px 0 16px 0;
+  text-align: center;
+}
+
+h3 {
+  color: var(--text-dark);
+  font-size: 1.4em;
+  font-weight: 500;
+  margin: 24px 0 12px 0;
+  text-align: center;
+}
+
+p {
+  color: #555;
+  line-height: 1.8;
+  margin: 16px 0;
+  font-size: 17px;
+}
+
+/* Navigation Links */
+nav a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 15px;
+}
+
+nav a:hover {
+  background: rgba(68, 100, 173, 0.08);
+  color: var(--primary-blue);
+}
+
+nav a.active {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+/* Primary CTA Button */
+.cta-button {
+  display: inline-block;
+  background: var(--primary-blue);
+  color: white;
+  border: 2px solid var(--primary-blue);
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin: 12px 8px;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background: transparent;
+  color: var(--primary-blue);
+}
+
+.cta-button:active {
+  transform: scale(0.98);
+}
+
+/* General Button Styles */
+button, input[type="submit"] {
+  background: var(--primary-blue);
+  color: white;
+  border: 2px solid var(--primary-blue);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: Inter, Lora, sans-serif;
+}
+
+button:hover, input[type="submit"]:hover {
+  background: transparent;
+  color: var(--primary-blue);
+}
+
+button:active, input[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+button:focus, input[type="submit"]:focus {
+  outline: 3px solid var(--light-blue);
+  outline-offset: 3px;
+}
+
+/* Buy Now Buttons in Tables */
+table button {
+  padding: 8px 16px;
+  font-size: 13px;
+}
+
+/* Form Submit Button */
+form button[type="button"],
+form input[type="submit"] {
+  padding: 14px 32px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/* Secondary Button Style */
+.btn-secondary {
+  background: var(--medium-green);
+  border-color: var(--medium-green);
+}
+
+.btn-secondary:hover {
+  background: transparent;
+  color: var(--medium-green);
+}
+
+/* Disabled Button State */
+button:disabled, input[type="submit"]:disabled {
+  background: #999;
+  color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+  box-shadow: none;
+}
+
+button:disabled:hover, input[type="submit"]:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  max-width: 800px;
+  margin: 32px auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background: var(--primary-blue);
+}
+
+th {
+  padding: 14px 16px;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  font-size: 14px;
+  background: transparent;
+}
+
+td {
+  padding: 12px 16px;
+  background: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--text-dark);
+  text-align: center;
+}
+
+tr:nth-child(even) td {
+  background: #f9fafb;
+}
+
+tr:hover td {
+  background: #f3f4f6;
+}
+
+/* Forms */
+form {
+  background: white;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 32px auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Enhanced Form Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+  background-color: white;
+  border: 1px solid #ddd;
+  color: var(--text-dark);
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-family: Inter, Lora, sans-serif;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  width: 100%;
+  max-width: 100%;
+  margin: 8px 0;
+  display: block;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(68, 100, 173, 0.1);
+}
+
+input[readonly] {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+label {
+  font-weight: 600;
+  color: var(--text-dark);
+  display: block;
+  margin: 16px 0 4px 0;
+  font-size: 14px;
+  text-align: left;
+}
+
+/* Lists */
+ul, ol {
+  text-align: left;
+  max-width: 600px;
+  margin: 24px 0;
+  padding-left: 40px;
+}
+
+body.content-page ul,
+body.content-page ol {
+  margin: 24px 0;
+  padding-left: 40px;
+}
+
+li {
+  margin: 12px 0;
+  color: #555;
+  line-height: 1.7;
+  text-align: left;
+}
+
+li strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+/* Image Styling */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin: 32px auto;
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#logo {
+  width: 180px;
+  display: block;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+}
+
+/* Toggle Buttons */
+.toggle-btn {
+  display: inline-block;
+  background: var(--primary-blue);
+  color: white;
+  border: 2px solid var(--primary-blue);
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin: 12px 8px;
+  cursor: pointer;
+}
+
+.toggle-btn:hover {
+  background: transparent;
+  color: var(--primary-blue);
+}
+
+#longIntro {
+  display: none;
+  margin: 24px 0;
+}
+
+#readLess {
+  display: none;
+}
+
+.hidden-form {
+  display: none;
+  margin-top: 40px;
+}
+
+/* Price Display Styling */
+#totalPrice,
+#checkoutTotalPrice {
+  background: rgba(68, 100, 173, 0.08);
+  padding: 16px;
+  border-radius: 8px;
+  border: 2px solid var(--primary-blue);
+  text-align: center;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: var(--primary-blue) !important;
+  margin: 24px 0 !important;
+}
+
+/* Map styles */
+#map {
+  height: 450px;
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Leaflet Zoom Controls Styling */
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+  border-radius: 6px !important;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.leaflet-control-zoom a {
+  background: white !important;
+  color: var(--text-dark) !important;
+  border: none !important;
+  width: 36px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  transition: background-color 0.2s ease !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #f5f5f5 !important;
+}
+
+.leaflet-control-zoom a:last-child {
+  border-bottom: none !important;
+}
+
+.leaflet-control-zoom-in {
+  border-radius: 6px 6px 0 0 !important;
+}
+
+.leaflet-control-zoom-out {
+  border-radius: 0 0 6px 6px !important;
+}
+
+/* Leaflet Attribution Styling */
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #666 !important;
+  padding: 4px 8px !important;
+  border-radius: 4px 0 0 0 !important;
+  font-size: 10px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--primary-blue) !important;
+  text-decoration: none !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.leaflet-control-attribution a:hover {
+  opacity: 0.7 !important;
+  text-decoration: underline !important;
+}
+
+/* Leaflet Popup Styling */
+.leaflet-popup-content-wrapper {
+  background: white !important;
+  color: var(--text-dark) !important;
+  border-radius: 8px !important;
+  padding: 4px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 16px !important;
+  font-family: Inter, Lora, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+.leaflet-popup-content b {
+  color: var(--primary-blue) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  display: block !important;
+  margin-bottom: 6px !important;
+}
+
+.leaflet-popup-tip {
+  background: white !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-top: none !important;
+  border-right: none !important;
+}
+
+.leaflet-popup-close-button {
+  color: #666 !important;
+  font-size: 18px !important;
+  padding: 4px 8px !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.leaflet-popup-close-button:hover {
+  opacity: 0.6 !important;
+}
+
+/* Custom Circle Marker Styling */
+.leaflet-interactive {
+  transition: all 0.3s ease !important;
+}
+
+.leaflet-interactive:hover {
+  opacity: 0.8 !important;
+  cursor: pointer !important;
+}
+
+/* Hamburger menu styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  z-index: 1001;
+  background: transparent;
+  border-radius: 6px;
+  transition: opacity 0.2s ease;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-dark);
+  margin: 3px 0;
+  transition: 0.2s;
+  border-radius: 2px;
+}
+
+.hamburger:hover {
+  opacity: 0.7;
+}
+
+/* Iframe Styling */
+iframe {
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin: 32px auto;
+  display: block;
+  max-width: 100%;
+}
+
+/* Mobile responsive design */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav_bar {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    padding-top: 60px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav_bar.active {
+    display: flex;
+  }
+
+  .nav_bar a {
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .main {
+    padding: 40px 20px;
+  }
+
+  h1 {
+    font-size: 2.2em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  .cta-button {
+    width: auto;
+    padding: 14px 28px;
+  }
+
+  button, input[type="submit"] {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  table button {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  table {
+    font-size: 14px;
+    overflow-x: auto;
+    display: block;
+  }
+
+  th, td {
+    padding: 12px 10px;
+  }
+
+  #map {
+    height: 300px;
+    margin: 24px 0;
+  }
+
+  form {
+    padding: 24px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}

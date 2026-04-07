@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhibitions - Monomuse</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-4.0.0-beta.min.js"></script>
+    <script src="../static/script.js" defer></script>
+</head>
+<body class="content-page" onload="addYear()">
+    <div class="container">
+        <header class="header">
+        </header>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="nav_bar" id="navMenu">
+            <a href="../index.html">Home</a>
+            <a href="explore.html">Explore</a>
+            <a href="exhibitions.html">Exhibitions</a>
+            <a href="tickets.html">Buy Tickets</a>
+            <a href="checkout.html">Checkout</a>
+        </nav>
+        <main class="main">
+            <h1>Exhibitions</h1>
+
+            <h3>Echoes of the Past: Ancient Civilizations</h3>
+            <p>
+                Old paintings from Egypt, Greece, and Rome. Pottery, sculptures, everyday items, with some pieces over 2,000 years old.
+            </p>
+
+            <h3>Colors of Change: Modern Abstract Art</h3>
+            <p>
+                Abstract, contemporary paintings with multitudes of colors and shapes.
+            </p>
+
+            <h3>Nature's Canvas: Photography of the Natural World</h3>
+            <p>
+                High-quality photos of nature. Landscapes, animals, and environmental scenes.
+            </p>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/JkPcA8dngB4?si=-FBQPfnHuwKaPdIt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </main>
+        <footer class="footer">
+            <p id="copyYear"></p>
+        </footer>
+    </div>
+</body>
+</html>
