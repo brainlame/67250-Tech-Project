@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Your name">
+    <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+    <meta name="description" content="MonoMuse website redesign project">
+    <title>MonoMuse</title>
+    <link rel="stylesheet" href="./static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-4.0.0-beta.min.js"></script>
+    <script src="./static/script.js" defer></script>
+</head>
+<body onload="addYear()">
+    <div class="container">
+        <header class="header">
+        </header>
+        <nav class="nav_bar">
+            <a href="index.html">Home</a>
+            <a href="views/explore.html">Explore</a>
+            <a href="views/exhibitions.html">Exhibitions</a>
+            <a href="views/tickets.html">Buy Tickets</a>
+            <a href="views/checkout.html">Checkout</a>
+        </nav>
+        <main class="main">
+            <h1>MonoMuse</h1>
+            <p>MonoMuse is a contemporary museum dedicated to exploring the intersection of art, technology, and human creativity. Through immersive exhibitions, interactive installations, and rotating collections, MonoMuse invites visitors to discover how digital innovation is transforming the way we create, experience, and understand art. Whether you are a first-time visitor or a returning member, our exhibitions offer new perspectives on the role of technology in culture and everyday life. Plan your visit to experience cutting-edge exhibitions, hands-on experiences, and events designed to inspire curiosity and creativity.</p>
+            <a href="views/buytickets.html" class="cta-button">Buy Tickets</a>
+
+            <p id="longIntro">At MonoMuse, we offer a diverse range of programs designed to engage visitors of all ages. From hands-on workshops to expert-led tours, our events bring art and technology to life. Join us for family-friendly activities on weekends, attend our monthly lecture series featuring renowned artists and technologists, or participate in our innovative maker sessions where you can create your own digital art projects.</p>
+            <span id="readMore" class="toggle-btn">Read More</span>
+            <span id="readLess" class="toggle-btn">Read Less</span>
+        </main>
+        <footer class="footer">
+            <p id="copyYear"></p>
+        </footer>
+    </div>
+</body>
+</html>
