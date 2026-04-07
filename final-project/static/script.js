@@ -164,16 +164,102 @@ function calculateCheckoutTotal() {
     }
 }
 
-/* Submit purchase and show alert */
+/* Submit purchase from tickets page */
 function submitPurchase() {
-    var total = document.getElementById("totalPrice").textContent;
-    alert("Order confirmed!\n" + total + "\n\nRedirecting to payment system.");
+    // Get form values
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var ticketType = document.getElementById("ticketType");
+    var quantity = document.getElementById("ticketQuantity").value;
+    var date = document.getElementById("selectedDate").value;
+    var totalText = document.getElementById("totalPrice").textContent;
+
+    // Validate form
+    if (!name || !email || !ticketType.value || !quantity || !date) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    // Extract total amount
+    var total = totalText.replace("Total: ", "");
+
+    // Store data in sessionStorage
+    sessionStorage.setItem('confirmationData', JSON.stringify({
+        name: name,
+        email: email,
+        total: total,
+        date: date,
+        quantity: quantity
+    }));
+
+    // Redirect to confirmation page
+    window.location.href = 'confirmation.html';
 }
 
-/* Submit checkout and show alert */
+/* Submit checkout */
 function submitCheckout() {
-    var total = document.getElementById("checkoutTotalPrice").textContent;
-    alert("Order confirmed!\n" + total + "\n\nRedirecting to payment system.");
+    // Get form values
+    var name = document.getElementById("checkoutName").value;
+    var email = document.getElementById("checkoutEmail").value;
+    var ticketType = document.getElementById("checkoutTicketType");
+    var quantity = document.getElementById("checkoutQuantity").value;
+    var totalText = document.getElementById("checkoutTotalPrice").textContent;
+
+    // Validate form
+    if (!name || !email || !ticketType.value || !quantity) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    // Extract total amount
+    var total = totalText.replace("Total: ", "");
+
+    // Get current date
+    var today = new Date();
+    var dateStr = today.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
+    // Store data in sessionStorage
+    sessionStorage.setItem('confirmationData', JSON.stringify({
+        name: name,
+        email: email,
+        total: total,
+        date: dateStr,
+        quantity: quantity
+    }));
+
+    // Redirect to confirmation page
+    window.location.href = 'confirmation.html';
+}
+
+/* Display confirmation data */
+function displayConfirmation() {
+    // Check if we're on the confirmation page
+    if (!document.querySelector('.confirmation-container')) {
+        return;
+    }
+
+    // Get data from sessionStorage
+    var data = sessionStorage.getItem('confirmationData');
+
+    if (data) {
+        var confirmData = JSON.parse(data);
+
+        // Populate the confirmation page
+        document.getElementById('confirmTotal').textContent = confirmData.total;
+        document.getElementById('confirmDate').textContent = confirmData.date;
+        document.getElementById('confirmName').textContent = confirmData.name;
+        document.getElementById('confirmEmail').textContent = confirmData.email;
+
+        // Clear the data after displaying
+        sessionStorage.removeItem('confirmationData');
+    } else {
+        // If no data, redirect to home
+        window.location.href = '../index.html';
+    }
 }
 
 /* Toggle mobile navigation menu */
